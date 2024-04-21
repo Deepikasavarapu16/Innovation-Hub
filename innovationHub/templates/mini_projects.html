@@ -1,0 +1,63 @@
+{% extends 'baseDashboard.html' %}
+{% load static %}
+{% block content %}
+
+<h2 style="text-align:center;">MINI PROJECTS</h2>
+
+<div class="search">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder=" Search Project titles.." title="Type in a name">
+</div> 
+
+<div class="filter">
+    <select name="branch" id="branch">
+        <option value="">-- Branch --</option>
+        <option value="civil">CIVIL</option>
+        <option value="cse">CSE</option>
+        <option value="ece">ECE</option>
+        <option value="eee">EEE</option>
+        <option value="mech">Mech</option>
+    </select>
+    <select name="year" id="year">
+        <option value="">-- Branch --</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+        <option value="4th">4th</option>
+    </select>
+</div>
+
+<div class="cont2">
+ <table class="table mt-5 table-striped" id="myTable">
+   <thead class="text-white">
+     <tr style="background-color: rgba(93, 93, 255, 0.692);">
+       <th scope="col">Project Title</th>
+       <th scope="col">Roll No</th>
+       <th scope="col">Name</th>
+       <th scope="col">Branch</th>
+       <th scope="col">Year</th>
+       <th scope="col">submitted date</th>                
+       <th scope="col">Edit/View</th>
+     </tr>
+   </thead>
+   <tbody>
+
+     {% for p in projects %}
+     <tr>
+       <td scope="row">{{p.project_title}}</td>
+       <td>{{p.roll_no}}</td>
+       <td>{{p.name}}</td>
+       <td>{{p.branch}}</td>
+       <td>{{p.year}}</td>
+       <td>{{p.date_created}}</td>
+       <td>
+       <button class="btn-sm btn-success"> <i class="fa fa-download" aria-hidden="true"></i> <a style="color: white;" href="{{p.document}}"target="_blank">Document</a></button>
+       <button class="btn-sm btn-primary"> <i class="fa fa-eye"></i>  <a style="color: white;" href="{{p.video}}" target="_blank">Video</a></button>
+       </td>
+     </tr>
+
+     {% endfor %}
+   </tbody>
+ </table>
+
+</div>
+
+{% endblock content  %}

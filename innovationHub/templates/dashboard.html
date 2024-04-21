@@ -1,0 +1,24 @@
+{% extends 'baseDashboard.html' %}
+{% block content %}
+    <section id="dashboard">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>{{total}}</h2>
+                    <h2>Total Projects</h2>
+                </div>
+                <div class="col">
+                    <h2>{{mini_projects}}</h2>
+                    <h2>Mini Projects</h2>
+                    <a href="{% url 'miniProjects' %}"><i class="fa fa-eye"></i> View </a>
+                </div>
+                <div class="col">
+                    <h2>{{final_projects}}</h2>
+                    <h2>Final Projects</h2>
+                    <a href="{% url 'finalProjects' %}"><i class="fa fa-eye"></i> View </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
